@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
+   <modules jcr:primaryType="jnt:modules">
+      <practice-templates j:dependencies="ad-base-components default practice-component"
+                        j:installedModules="practice-templates"
+                        j:modulePriority="0"
+                        j:moduleType="templatesSet"
+                        j:title="practice-templates"
+                        jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                        jcr:primaryType="jnt:module">
+         <sources j:title="practice-templates (1.0.1-SNAPSHOT)"
+                  jcr:mixinTypes="jmix:sourceControl jmix:hasExternalProviderExtension"
+                  jcr:primaryType="jnt:moduleVersionFolder"
+                  scmStatus="modified"
+                  j:staticMountPointProviderKey="module-practice-templates-1.0.1-SNAPSHOT">
+            <src jcr:mixinTypes="jmix:sourceControl jmix:hasExternalProviderExtension"
+                 jcr:primaryType="jnt:folder"
+                 scmStatus="modified">
+               <main jcr:mixinTypes="jmix:sourceControl jmix:hasExternalProviderExtension"
+                     jcr:primaryType="jnt:folder"
+                     scmStatus="modified">
+                  <resources jcr:mixinTypes="jmix:sourceControl jmix:hasExternalProviderExtension"
+                             jcr:primaryType="jnt:folder"
+                             scmStatus="modified">
+                     <jnt_template jcr:mixinTypes="jmix:sourceControl jmix:hasExternalProviderExtension"
+                                   jcr:primaryType="jnt:nodeTypeFolder"
+                                   scmStatus="modified">
+                        <html jcr:mixinTypes="jmix:sourceControl jmix:hasExternalProviderExtension"
+                              jcr:primaryType="jnt:templateTypeFolder"
+                              scmStatus="modified">
+                           <template.blank-template.jsp jcr:mixinTypes="jmix:sourceControl"
+                                                        jcr:primaryType="jnt:templateFile"
+                                                        nodeTypeName="jnt:template"
+                                                        scmStatus="modified"
+                                                        sourceCode="&lt;!DOCTYPE html PUBLIC &#34;-//W3C//DTD XHTML 1.0 Transitional//EN&#34;&#xA;&#34;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&#34;&gt;&#xA;&lt;%@ page language=&#34;java&#34; contentType=&#34;text/html;charset=UTF-8&#34; %&gt;&#xA;&lt;%@ taglib prefix=&#34;template&#34; uri=&#34;http://www.jahia.org/tags/templateLib&#34; %&gt;&#xA;&lt;%@ taglib prefix=&#34;c&#34; uri=&#34;http://java.sun.com/jsp/jstl/core&#34; %&gt;&#xA;&lt;%@ taglib prefix=&#34;fn&#34; uri=&#34;http://java.sun.com/jsp/jstl/functions&#34; %&gt;&#xA;&lt;%@ taglib prefix=&#34;jcr&#34; uri=&#34;http://www.jahia.org/tags/jcr&#34; %&gt;&#xA;&lt;%--@elvariable id=&#34;currentNode&#34; type=&#34;org.jahia.services.content.JCRNodeWrapper&#34;--%&gt;&#xA;&lt;%--@elvariable id=&#34;out&#34; type=&#34;java.io.PrintWriter&#34;--%&gt;&#xA;&lt;%--@elvariable id=&#34;script&#34; type=&#34;org.jahia.services.render.scripting.Script&#34;--%&gt;&#xA;&lt;%--@elvariable id=&#34;scriptInfo&#34; type=&#34;java.lang.String&#34;--%&gt;&#xA;&lt;%--@elvariable id=&#34;workspace&#34; type=&#34;java.lang.String&#34;--%&gt;&#xA;&lt;%--@elvariable id=&#34;renderContext&#34; type=&#34;org.jahia.services.render.RenderContext&#34;--%&gt;&#xA;&lt;%--@elvariable id=&#34;currentResource&#34; type=&#34;org.jahia.services.render.Resource&#34;--%&gt;&#xA;&lt;%--@elvariable id=&#34;url&#34; type=&#34;org.jahia.services.render.URLGenerator&#34;--%&gt;&#xA;&#xA;&#xA;&lt;html xmlns=&#34;http://www.w3.org/1999/xhtml&#34; xml:lang=&#34;en&#34;&gt;&#xA;&lt;head&gt;&#xA;    &lt;meta http-equiv=&#34;Content-Type&#34; content=&#34;text/html; charset=utf-8&#34; /&gt;&#xA;&#xA;    &lt;title&gt;${fn:escapeXml(renderContext.mainResource.node.displayableName)}&lt;/title&gt;&#xA;    &lt;link href=&#34;https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css&#34; rel=&#34;stylesheet&#34;&gt;   &#xA;    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css&#34; integrity=&#34;sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==&#34; crossorigin=&#34;anonymous&#34; referrerpolicy=&#34;no-referrer&#34; /&gt; &#xA;&lt;/head&gt;&#xA;&#xA;&lt;body class=&#34;bg-gray-100 min-h-screen&#34;&gt;&#xA;    &lt;!-- left-nav.html --&gt;&#xA;     &#xA;    &lt;template:area path=&#34;header&#34; moduleType=&#34;absoluteArea&#34; level=&#34;0&#34;/&gt;&#xA;&lt;div id=&#34;wrapperContainer&#34; class=&#34;bodywrapper font-Lato flex flex-col lg:flex-row&#34;&gt;&lt;!--start bodywrapper--&gt;&#xA;    &lt;div class=&#34;container mx-auto px-6 py-8 w-full&#34;&gt;&#xA;        &lt;template:area path=&#34;mainContent&#34;/&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;&#xA;&lt;/div&gt;&#xA;&lt;!--stop bodywrapper--&gt;&#xA;&lt;template:addResources type=&#34;css&#34; resources=&#34;output.css&#34; /&gt;&#xA;&lt;c:if test=&#34;${renderContext.editMode}&#34;&gt;&#xA;    &lt;template:addResources type=&#34;css&#34; resources=&#34;edit.css&#34; /&gt;&#xA;&lt;/c:if&gt;&#xA;&lt;template:addResources type=&#34;css&#34; resources=&#34;960.css,01web.css&#34;/&gt;&#xA;&lt;template:theme/&gt;&#xA;&#xA;&lt;template:addResources type=&#34;css&#34; resources=&#34;image.css&#34; /&gt;&#xA;&#xA;&lt;template:addResources type=&#34;css&#34; resources=&#34;fonts.css&#34; /&gt;&#xA;&#xA;&#xA;&lt;!-- &lt;script src=&#34;/modules/practice-component/javascript/practice/apiManager.js&#34;&gt;&lt;/script&gt; --&gt;&#xA;&lt;!-- &lt;script src=&#34;/modules/practice-component/javascript/practice/app.js&#34;&gt;&lt;/script&gt; --&gt;&#xA;&lt;script src=&#34;/modules/practice-component/javascript/practice/faqSearch.js&#34;&gt;&lt;/script&gt;&#xA;&lt;script src=&#34;/modules/practice-component/javascript/practice/accordion.js&#34;&gt;&lt;/script&gt;&#xA;&lt;script src=&#34;/modules/practice-component/javascript/practice/authentication.js&#34;&gt;&lt;/script&gt;&#xA;&lt;!-- &lt;script src=&#34;/modules/practice-component/javascript/practice/signIn.js&#34;&gt;&lt;/script&gt; --&gt;&#xA;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;&#xA;"/>
+                        </html>
+                     </jnt_template>
+                  </resources>
+               </main>
+            </src>
+         </sources>
+         <portlets jcr:primaryType="jnt:portletFolder"/>
+         <files jcr:primaryType="jnt:folder"/>
+         <contents jcr:primaryType="jnt:contentFolder"/>
+         <templates jcr:primaryType="jnt:templatesFolder">
+            <files jcr:primaryType="jnt:folder">
+               <themes jcr:primaryType="jnt:folder">
+                  <default jcr:primaryType="jnt:folder"/>
+               </themes>
+            </files>
+            <contents jcr:primaryType="jnt:contentFolder"/>
+            <base j:theme="#/modules/practice-templates/templates/files/themes/default"
+                  j:view="practice-templates"
+                  jcr:mixinTypes="jmix:theme"
+                  jcr:primaryType="jnt:template">
+               <home jcr:primaryType="jnt:pageTemplate"/>
+               <simple jcr:primaryType="jnt:pageTemplate"/>
+               <blank j:hiddenTemplate="false"
+                      j:view="blank-template"
+                      jcr:primaryType="jnt:pageTemplate">
+                  <j:translation_en jcr:language="en"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="blank"/>
+               </blank>
+            </base>
+            <content-template j:applyOn="jnt:content"
+                              j:hiddenTemplate="true"
+                              j:priority="1"
+                              j:view="practice-templates"
+                              jcr:primaryType="jnt:contentTemplate">
+               <pagecontent jcr:primaryType="jnt:contentList">
+                  <main-resource-display j:mainResourceView="default" jcr:primaryType="jnt:mainResourceDisplay"/>
+               </pagecontent>
+            </content-template>
+         </templates>
+         <home j:isHomePage="true"
+               j:templateName="home"
+               jcr:primaryType="jnt:page">
+            <j:translation_en jcr:language="en"
+                              jcr:mixinTypes="mix:title"
+                              jcr:primaryType="jnt:translation"
+                              jcr:title="Home"/>
+         </home>
+      </practice-templates>
+   </modules>
+</content>

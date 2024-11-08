@@ -1,0 +1,39 @@
+.cta-link-btn .primary-cta{
+    background-color: rgb(69 122 255);
+    color: white;
+    transition: all 0.3s;
+}
+
+.cta-link-btn .primary-cta:hover{
+    background: linear-gradient(138deg, rgba(118, 160, 255, 0.7) 0%, rgba(0, 61, 255, 0.7) 25.08%, rgba(151, 71, 255, 0.7) 56.38%, rgba(118, 160, 255, 0.7) 100%), #003DFF;
+}
+
+.cmp-teaser__action-container .cta-link-btn .secondary-cta{
+    padding: 5px 40px;
+    font-size: 14px;
+    border-radius: 26px;
+    min-height: 2.5rem;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    text-wrap: wrap;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all .3s;
+    color: white;
+    background-color: #c81766;
+    border-color: #c81766;
+    text-decoration: none;
+}
+
+.cmp-teaser__action-container .cta-link-btn .secondary-cta:hover{
+    background-color: #a20f4f;
+    color: #fff;
+}
+
+.teaser-left-container .rounded-topLeft .teaser .teaser-image img{
+    border-top-left-radius: 2.6rem;
+    border-bottom-right-radius: 2.6rem;
+    object-fit: cover;
+
+}

@@ -1,0 +1,81 @@
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
+<ptmix = 'https://www.algolia.com/practicebase/mix/1.0'>
+<ptnt = 'https://www.algolia.com/practicebase/nt/1.0'>
+<admix = 'https://www.ad.com/adbase/mix/1.0'>
+<adnt = 'https://www.ad.com/adbase/nt/1.0'>
+
+[ptmix:mixin] > jmix:droppableContent mixin
+
+[ptmix:taranrichtext] mixin
+-subHeading (string) internationalized
+- heading (string) internationalized
+- description (string) internationalized
+
+[ptnt:taranrichtext] > jnt:content, ptmix:taranrichtext, ptmix:mixin
+
+
+[ptmix:ctaalign] mixin
+- label (string) internationalized
+- ctaBackground (string, choicelist[resourceBundle]) internationalized indexed=no < 'primary', 'secondary', 'white', 'transparent', 'withIcon'
+- ctaAlignment (string, choicelist[resourceBundle]) internationalized indexed=no < 'left', 'center', 'right'
+
+[ptnt:ctaalign] > jnt:content, ptmix:ctaalign, ptmix:mixin
+
+
+[ptmix:myApiConfig] mixin
+extends= jnt:virtualsite, ptnt:ctaalign
+itemtype = options
+- baseUrl (string)
+- apiKey (string)
+- apiKeyHeader (string)
+- contentType (string)
+
+[ptmix:Separator] mixin
+- Seperator (boolean) = 'false'
+
+[ptmix:heading] mixin
+extends = ptnt:practiceTeaserContainer
+ - tag (string) internationalized
+ - heading (string) internationalized
+ - description (string) internationalized
+
+ [ptmix:customCssClass] mixin
+ extends = ptnt:practiceTeaserContainer
+ itemtype= layout
+ - customCssClass (string) internationalized
+
+[ptmix:Alignment] mixin
+extends = ptnt:practiceTeaserContainer
+- headingalignment (string, choicelist[resourceBundle]) internationalized indexed=no < 'left', 'center', 'right'
+
+[ptmix:practiceTeaserContainer] mixin
+- column (string, choicelist[resourceBundle]) internationalized indexed=no < '1', '2', '3', '4', '5'
+
+[ptnt:practiceTeaserContainer] > jnt:content, ptmix:practiceTeaserContainer, ptmix:Separator, ptmix:mixin
+ + * (ptnt:practiceTeaser)
+
+[ptmix:practiceTeaser] mixin
+ - tag (string) internationalized
+ - title (string) internationalized
+ - description (string, richtext) internationalized
+ - descriptionIcon (string, choicelist[resourceBundle,moduleImage='svg']) = 'check' indexed=no < 'arrowRightCircle', 'check' , 'redCheck', 'whiteCheck'
+ - enableCta (boolean) = 'false' internationalized
+ - Image (weakreference, picker[type='image']) < 'jmix:image'
+ - ImageAltText (string) internationalized
+ - imageWidth (double) internationalized
+ - imageHeight (double) internationalized
+
+ [ptnt:practiceTeaser] > jnt:content, ptmix:practiceTeaser
+ + * (ptnt:cta)
+
+ [ptmix:cta] mixin
+ itemtype = content
+ - ctaLabel (string) internationalized
+ - ctaVariant (string, choicelist[resourceBundle]) < 'primary', 'secondary', 'withIcon', 'noBackGround','white'
+ - ctaAlignment (string, choicelist[resourceBundle]) < 'left', 'center', 'right'
+
+ [ptnt:cta] > jnt:content, ptmix:cta, mdmix:mixin
+
+
+

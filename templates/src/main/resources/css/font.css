@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('/templates/src/main/resources/css/fonts/lato.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
