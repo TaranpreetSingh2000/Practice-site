@@ -46,7 +46,7 @@ extends = ptnt:practiceTeaserContainer
  - customCssClass (string) internationalized
 
 [ptmix:Alignment] mixin
-extends = ptnt:practiceTeaserContainer
+extends = ptnt:practiceTeaserContainer, ptnt:TagsContainer
 - headingalignment (string, choicelist[resourceBundle]) internationalized indexed=no < 'left', 'center', 'right'
 
 [ptmix:practiceTeaserContainer] mixin
@@ -77,5 +77,14 @@ extends = ptnt:practiceTeaserContainer
 
  [ptnt:cta] > jnt:content, ptmix:cta, mdmix:mixin
 
+ [ptmix:TagsContainer] mixin
+ -title (string) internationalized
 
+[ptmix:Tags] mixin
+-title (string) internationalized
+
+ [ptnt:Tags] > jnt:content, ptmix:Tags
+
+ [ptnt:TagsContainer] > jnt:content, ptmix:TagsContainer, mdmix:mixin
+ + * (ptnt:Tags)
 
