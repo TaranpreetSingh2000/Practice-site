@@ -20,10 +20,13 @@
 
 <template:addResources type="css" resources="teaser.css" />
 
-
-<c:set var="title" value="${currentNode.properties['title'].string}" />
+<c:set var="column" value="${currentNode.properties['column'].string}" />
+<c:set var="tag" value="${currentNode.properties['tag'].string}" />
+<c:set var="heading" value="${currentNode.properties['heading'].string}" />
+<c:set var="description" value="${currentNode.properties['description'].string}" />
 <c:set var="alignment" value="${currentNode.properties['headingalignment'].string}" />
-
+<c:set var="customCssClass" value="${currentNode.properties['customCssClass'].string}" />
+<c:set var="variant" value="${currentNode.properties['variant'].string}" />
 
 <c:if test="${alignment == 'right'}">
     <c:set var="align" value="end" />
@@ -36,25 +39,37 @@
 </c:if>
 
 <c:if test="${renderContext.editMode}">
-    <c:if test="${empty title}">
-        Configure Heading here
+    <c:if test="${empty heading}">
+        Configure Page Heading here
     </c:if>
 </c:if>
 
+<c:choose>
+    <c:when test="${variant == 'withCtaDash'}">
+        <c:set var="variantToSet" value="card-cta-icon"/>
+    </c:when>
+    <c:when test="${variant == 'withRoundedBorders'}">
+        <c:set var="variantToSet" value="rounded-border"/>
+    </c:when>
+</c:choose>
 
-<div class="tags-container">
-    <div class=" flex flex-col flex-wrap w-full justify-${align} items-${align} mb-12">
-        <h2 class="field-headline text-2xl uppercase underline tracking-[1.12px] font-semibold font-lato">${title}</h2>
+
+<div class="teaser-card-container">
+    <div class="teaser-view flex flex-col flex-wrap w-full justify-center <c:if test="${not empty alignment}">justify-${alignment} items-${alignment}</c:if> mb-12">
+        <span
+            class="field-tag my-4 inline-block text-sm font-extrabold uppercase tracking-widest">${tag}</span>
+        <h2 class="field-headline text-2xl tracking-[1.12px] font-semibold font-lato">${heading}</h2>
+        <p class="field-description">${description}</p>
     </div>
 
-    <div class="flex flex-wrap gap-4">
-        <c:set var="tags" value="${jcr:getChildrenOfType(currentNode, 'ptnt:Tags')}" />
-        <c:forEach items="${tags}" var="tag" varStatus="item">
-            <template:module node="${tag}" nodeTypes="ptnt:Tags" editable="true" view="" />
+    <div class="${customCssClass} ${variantToSet} grid grid-cols-1 lg:grid-cols-${column} justify-center items-center w-full gap-x-4 gap-y-8 ">
+        <c:set var="teasers" value="${jcr:getChildrenOfType(currentNode, 'ptnt:practiceTeaser')}" />
+        <c:forEach items="${teasers}" var="teaser" varStatus="item">
+            <template:module node="${teaser}" nodeTypes="ptnt:practiceTeaser" editable="true" view="hidden.teaserAscard" />
         </c:forEach>
     </div>
 </div>
     <c:if test="${renderContext.editMode}">
-        <template:module path="*" nodeTypes="ptnt:Tags" />
+        <template:module path="*" nodeTypes="ptnt:practiceTeaser" />
     </c:if>
 
