@@ -15,3 +15,21 @@
 .teaser-left-container .teaser .teaser-content .teaser-right-content .teaser-description span ul li {
     padding: 4px 0px;
 }
+
+.teaser-card-container .teaser {
+    box-shadow: -2px 2px 8px 0 rgba(224, 219, 219, .7), inset -1px 1px 0 0 rgba(224, 219, 219, .7), inset 1px -1px 0 0 rgba(224, 219, 219, .7);
+    height: 100%;
+    background: #fff;
+}
+
+.teaser-card-container .card-cta-icon .teaser .cmp-teaser__action-container{
+    flex-direction: column;
+}
+.teaser-card-container .card-cta-icon .teaser .cmp-teaser__action-container::before {
+    width: 2rem;
+    display: block;
+    height: .05rem;
+    background-color: #c9c3c4;
+    margin: 1rem 1rem ;
+    content: " ";
+}

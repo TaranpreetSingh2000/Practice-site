@@ -46,11 +46,12 @@ extends = ptnt:practiceTeaserContainer
  - customCssClass (string) internationalized
 
 [ptmix:Alignment] mixin
-extends = ptnt:practiceTeaserContainer, ptnt:TagsContainer
+extends = ptnt:practiceTeaserContainer, ptnt:TagsContainer, ptnt:practiceTeaser
 - headingalignment (string, choicelist[resourceBundle]) internationalized indexed=no < 'left', 'center', 'right'
 
 [ptmix:practiceTeaserContainer] mixin
 - column (string, choicelist[resourceBundle]) internationalized indexed=no < '1', '2', '3', '4', '5'
+- variant (string, choicelist[resourceBundle, moduleImage='png']) internationalized indexed=no < 'withTitleRedirectionArrow' , 'withCtaArrowIcon' , 'withCtaDash', 'withRoundedBorders'
 
 [ptnt:practiceTeaserContainer] > jnt:content, ptmix:practiceTeaserContainer, ptmix:Separator, ptmix:mixin
  + * (ptnt:practiceTeaser)
@@ -87,4 +88,9 @@ extends = ptnt:practiceTeaserContainer, ptnt:TagsContainer
 
  [ptnt:TagsContainer] > jnt:content, ptmix:TagsContainer, mdmix:mixin
  + * (ptnt:Tags)
+
+ [ptmix:customIcon] mixin
+ extends = ptnt:Tags
+ itemtype = layout
+ - Image (weakreference, picker[type='image']) < 'jmix:image'
 

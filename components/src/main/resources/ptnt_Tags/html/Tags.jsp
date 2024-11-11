@@ -20,8 +20,13 @@
 
 
 <c:set var="title" value="${currentNode.properties['title'].string}" />
+<c:set var="image" value="${currentNode.properties['Image'].node}" />
 
-<div class="tags bg-brown p-1 rounded-md px-4">
+
+<div class="tags bg-brown p-1 rounded-md px-4 flex items-center flex-row-reverse gap-2">
+    <div class="cmp_image">
+        <img src="${image.url}"  class="w-4 text-white white" alt="">
+    </div>
          <c:if test="${not empty title}">
             <h5 class='cmp-tag__title text-base lg:text-md font-lato font-semibold text-white'>${title}</h5>
         </c:if>
