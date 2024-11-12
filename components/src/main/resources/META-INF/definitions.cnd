@@ -94,3 +94,22 @@ extends = ptnt:practiceTeaserContainer, ptnt:TagsContainer, ptnt:practiceTeaser
  itemtype = layout
  - Image (weakreference, picker[type='image']) < 'jmix:image'
 
+
+[ptmix:tableCells] mixin
+- cellRowHeading (string) internationalized
+- cellHeading (string) internationalized
+- cellSubHeading (string) internationalized
+- columnSpan (long)
+- headingPosition (string, choicelist[resourceBundle]) internationalized indexed=no < 'thead', 'tbody'
+
+[ptnt:tableCells] > jnt:content, ptmix:tableCells
+
+[ptmix:tableRows] mixin
+
+[ptnt:tableRows] > jnt:content, ptmix:tableRows
++ * (ptnt:tableCells)
+
+ [ptmix:comparisonTable] mixin
+
+[ptnt:comparisonTable] > jnt:content, ptmix:comparisonTable, ptmix:mixin
++ * (ptnt:tableRows)
