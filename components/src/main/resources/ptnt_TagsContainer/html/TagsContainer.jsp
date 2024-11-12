@@ -20,7 +20,6 @@
 
 <template:addResources type="css" resources="teaser.css" />
 
-
 <c:set var="title" value="${currentNode.properties['title'].string}" />
 <c:set var="alignment" value="${currentNode.properties['headingalignment'].string}" />
 
