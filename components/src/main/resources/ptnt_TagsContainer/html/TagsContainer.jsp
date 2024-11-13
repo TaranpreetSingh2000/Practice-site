@@ -19,7 +19,7 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
 <template:addResources type="css" resources="teaser.css" />
-
+aaaa
 
 <c:set var="title" value="${currentNode.properties['title'].string}" />
 <c:set var="alignment" value="${currentNode.properties['headingalignment'].string}" />
