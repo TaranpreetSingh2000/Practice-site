@@ -18,55 +18,19 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<template:addResources type="javascript" resources="jquery.js" />
-
 
 <c:set var="name" value="${currentNode.properties['name'].string}" />
 <c:set var="position" value="${currentNode.properties['position'].string}" />
 <c:set var="office" value="${currentNode.properties['office'].string}" />
 <c:set var="age" value="${currentNode.properties['age'].string}" />
-<c:set var="startdate" value="${currentNode.properties['startdate'].string}" />
+<fmt:formatDate var="startdate" value="${currentNode.properties.blogdate.time}" pattern="yyyy-MM-dd"/>
 <c:set var="salary" value="${currentNode.properties['salary'].string}" />
 
-
-<div >
-    <table id="example" class="datatable my-10" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <th>${name}</th>
-                <th>${position}</th>
-                <th>${office}</th>
-                <th>${age}</th>
-                <th>${datenew}</th>
-                <th>${salary}</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <c:set var="rows" value="${jcr:getChildrenOfType(currentNode, 'ptnt:datarows')}" />
-            <c:forEach items="${rows}" var="row" varStatus="item">
-                <template:module node="${row}" nodeTypes="ptnt:datarows" editable="true" view="" />
-            </c:forEach>
-        </tbody>
-        </table>
-    </div>   
-    
-    <c:if test="${renderContext.editMode}">
-        <template:module path="*" nodeTypes="ptnt:datarows" />
-    </c:if>
-
-
-    <script>
-        $(document).ready(function () {
-            let table = $('#example').DataTable({
-                paging: true,
-                searching: true,
-                info: true
-            });
-
-            $('#example tbody').on('click', 'tr', function () {
-                let data = table.row(this).data();
-                alert('You clicked on ' + data[0] + "'s row");
-            });
-        });
-    </script>
+    <tr>
+        <td>${name}</td>
+        <td>${position}</td>
+        <td>${office}</td>
+        <td>${age}</td>
+        <td>${startdate}</td>
+        <td>${salary}</td>
+    </tr>
