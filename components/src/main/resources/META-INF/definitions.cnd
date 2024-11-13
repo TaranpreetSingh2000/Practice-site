@@ -135,6 +135,12 @@ extends = ptnt:practiceTeaserContainer, ptnt:TagsContainer, ptnt:practiceTeaser
 - startdate (string) internationalized
 - salary (string)  
 
+[ptmix:dataColumns] mixin
+- colHeader (string) mandatory internationalized
+- type (string, choicelist[resourceBundle]) mandatory internationalized < 'string', 'integer', 'double', 'date'
+
+[ptnt:dataColumns] > jnt:content, ptmix:dataColumns, ptmix:mixin
+
 [ptnt:datatable] > jnt:content, ptmix:datatable, ptmix:mixin
 + * (ptnt:datarows)
 
