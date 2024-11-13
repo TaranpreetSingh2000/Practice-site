@@ -113,3 +113,37 @@ extends = ptnt:practiceTeaserContainer, ptnt:TagsContainer, ptnt:practiceTeaser
 
 [ptnt:comparisonTable] > jnt:content, ptmix:comparisonTable, ptmix:mixin
 + * (ptnt:tableRows)
+
+[ptmix:cardLinks] mixin
+- maintitle (string) internationalized
+ - enableCta (boolean) = 'false' internationalized
+
+
+[ptnt:cardLinks] > jnt:content, ptmix:cardLinks
+ + * (ptnt:cta)
+
+[ptmix:cardLinksContainer] mixin
+
+[ptnt:cardLinksContainer] > jnt:content, ptmix:cardLinksContainer, ptmix:mixin
++ * (ptnt:cardLinks)
+
+[ptmix:datatable] mixin
+- name (string) internationalized
+- position (string) internationalized
+- office (string) internationalized
+- age (string) internationalized
+- startdate (string) internationalized
+- salary (string)  
+
+[ptnt:datatable] > jnt:content, ptmix:datatable, ptmix:mixin
++ * (ptnt:datarows)
+
+[ptmix:datarows] mixin
+- name (string) internationalized
+- position (string) internationalized
+- office (string) internationalized
+- age (string) internationalized
+- startdate (date) = now()
+- salary (string) internationalized 
+
+[ptnt:datarows] > jnt:content, ptmix:datarows
