@@ -24,7 +24,6 @@ aaaa
 <c:set var="title" value="${currentNode.properties['title'].string}" />
 <c:set var="alignment" value="${currentNode.properties['headingalignment'].string}" />
 
-
 <c:if test="${alignment == 'right'}">
     <c:set var="align" value="end" />
 </c:if>
@@ -42,7 +41,7 @@ aaaa
 </c:if>
 
 
-<div class="tags-container">
+<div class="tags-container flex">
     <div class=" flex flex-col flex-wrap w-full justify-${align} items-${align} mb-12">
         <h2 class="field-headline text-2xl uppercase underline tracking-[1.12px] font-semibold font-lato">${title}</h2>
     </div>
