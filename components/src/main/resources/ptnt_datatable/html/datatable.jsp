@@ -73,19 +73,17 @@
 
 
     <script>
-$(document).ready(function () {
-    debugger
-    alert("")
-    let table = $('#example').DataTable({
-        paging: true,     
-        searching: true,   
-        info: true         
-    });
+        $(document).ready(function () {
+            debugger
+            let table = $('#example').DataTable({
+                paging: true,
+                searching: true,
+                info: true
+            });
 
-    $('#example tbody').on('click', 'tr', function () {
-        let data = table.row(this).data();
-        alert('You clicked on ' + data[0] + "'s row");
-    });
-});
+            $('#example tbody').on('click', 'tr', function () {
+                let data = table.row(this).data();
+                alert('You clicked on ' + data[0] + "'s row");
+            });
+        });
     </script>
-    
