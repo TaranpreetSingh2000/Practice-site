@@ -18,40 +18,30 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<template:addResources type="css" resources="teaser.css" />
-<c:set var="title" value="${currentNode.properties['title'].string}" />
-<c:set var="alignment" value="${currentNode.properties['headingalignment'].string}" />
+<template:addResources type="css" resources="card.css" />
 
-<c:if test="${alignment == 'right'}">
-    <c:set var="align" value="end" />
-</c:if>
-<c:if test="${alignment == 'left'}">
-    <c:set var="align" value="start" />
-</c:if>
-<c:if test="${alignment == 'center'}">
-    <c:set var="align" value="center" />
-</c:if>
-
-<c:if test="${renderContext.editMode}">
-    <c:if test="${empty title}">
-        Configure Heading here
-    </c:if>
-</c:if>
+<c:set var="maintitle" value="${currentNode.properties['maintitle'].string}" />
+<c:set var="enableCta" value="${currentNode.properties['enableCta'].boolean}" />
 
 
-<div class="tags-container flex">
-    <div class=" flex flex-col flex-wrap w-full justify-${align} items-${align} mb-12">
-        <h2 class="field-headline text-2xl uppercase underline tracking-[1.12px] font-semibold font-lato">${title}</h2>
-    </div>
+<div class="card">
+    <div class="card-content p-5 flex flex-col">
+         <c:if test="${not empty maintitle}"><h5 class='cmp-card__title text-base lg:text-2xl font-lato font-semibold mb-2 text-[#4a5a81]'>${maintitle}</h5>
+        </c:if>
 
-    <div class="flex flex-wrap gap-4">
-        <c:set var="tags" value="${jcr:getChildrenOfType(currentNode, 'ptnt:Tags')}" />
-        <c:forEach items="${tags}" var="tag" varStatus="item">
-            <template:module node="${tag}" nodeTypes="ptnt:Tags" editable="true" view="" />
-        </c:forEach>
+        <c:if test="${enableCta == 'true'}">
+            <div class="cmp-teaser__action-container flex items-end my-3 gap-1 font-sora">
+                <c:forEach var="button" items="${jcr:getChildrenOfType(currentNode, 'ptnt:cta')}" >
+                    <template:module node="${button}" />
+                </c:forEach>
+
+                <c:if test="${renderContext.editMode}">
+                        <template:module path="*" nodeTypes="ptnt:cta" />
+                </c:if>
+            </div>
+        </c:if>
+
     </div>
 </div>
-    <c:if test="${renderContext.editMode}">
-        <template:module path="*" nodeTypes="ptnt:Tags" />
-    </c:if>
+
 

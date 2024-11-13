@@ -18,40 +18,19 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<template:addResources type="css" resources="teaser.css" />
-<c:set var="title" value="${currentNode.properties['title'].string}" />
-<c:set var="alignment" value="${currentNode.properties['headingalignment'].string}" />
 
-<c:if test="${alignment == 'right'}">
-    <c:set var="align" value="end" />
-</c:if>
-<c:if test="${alignment == 'left'}">
-    <c:set var="align" value="start" />
-</c:if>
-<c:if test="${alignment == 'center'}">
-    <c:set var="align" value="center" />
-</c:if>
+<c:set var="name" value="${currentNode.properties['name'].string}" />
+<c:set var="position" value="${currentNode.properties['position'].string}" />
+<c:set var="office" value="${currentNode.properties['office'].string}" />
+<c:set var="age" value="${currentNode.properties['age'].string}" />
+<fmt:formatDate var="startdate" value="${currentNode.properties.blogdate.time}" pattern="yyyy-MM-dd"/>
+<c:set var="salary" value="${currentNode.properties['salary'].string}" />
 
-<c:if test="${renderContext.editMode}">
-    <c:if test="${empty title}">
-        Configure Heading here
-    </c:if>
-</c:if>
-
-
-<div class="tags-container flex">
-    <div class=" flex flex-col flex-wrap w-full justify-${align} items-${align} mb-12">
-        <h2 class="field-headline text-2xl uppercase underline tracking-[1.12px] font-semibold font-lato">${title}</h2>
-    </div>
-
-    <div class="flex flex-wrap gap-4">
-        <c:set var="tags" value="${jcr:getChildrenOfType(currentNode, 'ptnt:Tags')}" />
-        <c:forEach items="${tags}" var="tag" varStatus="item">
-            <template:module node="${tag}" nodeTypes="ptnt:Tags" editable="true" view="" />
-        </c:forEach>
-    </div>
-</div>
-    <c:if test="${renderContext.editMode}">
-        <template:module path="*" nodeTypes="ptnt:Tags" />
-    </c:if>
-
+    <tr>
+        <td>${name}</td>
+        <td>${position}</td>
+        <td>${office}</td>
+        <td>${age}</td>
+        <td>${startdate}</td>
+        <td>${salary}</td>
+    </tr>

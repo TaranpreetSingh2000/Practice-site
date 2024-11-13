@@ -18,12 +18,11 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<template:addResources type="css" resources="teaser.css" />
-<c:set var="title" value="${currentNode.properties['title'].string}" />
 <c:set var="alignment" value="${currentNode.properties['headingalignment'].string}" />
+<c:set var="column" value="${currentNode.properties['column'].string}" />
 
 <c:if test="${alignment == 'right'}">
-    <c:set var="align" value="end" />
+    <c:set var="align" value="end" /> 
 </c:if>
 <c:if test="${alignment == 'left'}">
     <c:set var="align" value="start" />
@@ -32,26 +31,16 @@
     <c:set var="align" value="center" />
 </c:if>
 
-<c:if test="${renderContext.editMode}">
-    <c:if test="${empty title}">
-        Configure Heading here
-    </c:if>
-</c:if>
 
-
-<div class="tags-container flex">
-    <div class=" flex flex-col flex-wrap w-full justify-${align} items-${align} mb-12">
-        <h2 class="field-headline text-2xl uppercase underline tracking-[1.12px] font-semibold font-lato">${title}</h2>
-    </div>
-
-    <div class="flex flex-wrap gap-4">
-        <c:set var="tags" value="${jcr:getChildrenOfType(currentNode, 'ptnt:Tags')}" />
-        <c:forEach items="${tags}" var="tag" varStatus="item">
-            <template:module node="${tag}" nodeTypes="ptnt:Tags" editable="true" view="" />
+<div class="card-links-container">
+    <div class="grid grid-cols-1 lg:grid-cols-${column} justify-center items-center w-full gap-x-4 gap-y-8 ">
+        <c:set var="cards" value="${jcr:getChildrenOfType(currentNode, 'ptnt:cardLinks')}" />
+        <c:forEach items="${cards}" var="card" varStatus="item">
+            <template:module node="${card}" nodeTypes="ptnt:cardLinks" editable="true" view="" />
         </c:forEach>
     </div>
 </div>
     <c:if test="${renderContext.editMode}">
-        <template:module path="*" nodeTypes="ptnt:Tags" />
+        <template:module path="*" nodeTypes="ptnt:cardLinks" />
     </c:if>
 

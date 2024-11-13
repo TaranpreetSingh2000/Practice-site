@@ -3099,6 +3099,11 @@ video {
   color: rgb(4 4 103 / var(--tw-text-opacity));
 }
 
+.text-\[\#4a5a81\] {
+  --tw-text-opacity: 1;
+  color: rgb(74 90 129 / var(--tw-text-opacity));
+}
+
 .text-\[\#22272d\] {
   --tw-text-opacity: 1;
   color: rgb(34 39 45 / var(--tw-text-opacity));

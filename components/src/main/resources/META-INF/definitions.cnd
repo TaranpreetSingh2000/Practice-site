@@ -94,3 +94,62 @@ extends = ptnt:practiceTeaserContainer, ptnt:TagsContainer, ptnt:practiceTeaser
  itemtype = layout
  - Image (weakreference, picker[type='image']) < 'jmix:image'
 
+
+[ptmix:tableCells] mixin
+- cellRowHeading (string) internationalized
+- cellHeading (string) internationalized
+- cellSubHeading (string) internationalized
+- columnSpan (long)
+- headingPosition (string, choicelist[resourceBundle]) internationalized indexed=no < 'thead', 'tbody'
+
+[ptnt:tableCells] > jnt:content, ptmix:tableCells
+
+[ptmix:tableRows] mixin
+
+[ptnt:tableRows] > jnt:content, ptmix:tableRows
++ * (ptnt:tableCells)
+
+ [ptmix:comparisonTable] mixin
+
+[ptnt:comparisonTable] > jnt:content, ptmix:comparisonTable, ptmix:mixin
++ * (ptnt:tableRows)
+
+[ptmix:cardLinks] mixin
+- maintitle (string) internationalized
+ - enableCta (boolean) = 'false' internationalized
+
+
+[ptnt:cardLinks] > jnt:content, ptmix:cardLinks
+ + * (ptnt:cta)
+
+[ptmix:cardLinksContainer] mixin
+
+[ptnt:cardLinksContainer] > jnt:content, ptmix:cardLinksContainer, ptmix:mixin
++ * (ptnt:cardLinks)
+
+[ptmix:datatable] mixin
+- name (string) internationalized
+- position (string) internationalized
+- office (string) internationalized
+- age (string) internationalized
+- startdate (string) internationalized
+- salary (string)  
+
+[ptmix:dataColumns] mixin
+- colHeader (string) mandatory internationalized
+- type (string, choicelist[resourceBundle]) mandatory internationalized < 'string', 'integer', 'double', 'date'
+
+[ptnt:dataColumns] > jnt:content, ptmix:dataColumns, ptmix:mixin
+
+[ptnt:datatable] > jnt:content, ptmix:datatable, ptmix:mixin
++ * (ptnt:datarows)
+
+[ptmix:datarows] mixin
+- name (string) internationalized
+- position (string) internationalized
+- office (string) internationalized
+- age (string) internationalized
+- startdate (date) = now()
+- salary (string) internationalized 
+
+[ptnt:datarows] > jnt:content, ptmix:datarows
